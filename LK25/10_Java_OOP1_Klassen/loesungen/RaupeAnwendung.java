@@ -6,23 +6,23 @@ import javax.swing.Timer;
 
 import hilfe.*;
 
-public class RaupeAnw extends HJFrame {
+public class RaupeAnwendung extends HJFrame {
 	// globale Variablen
-	private static final int WIDTH = 500;
-	private static final int HEIGHT = 500;
+	static final int WIDTH = 500;
+	static final int HEIGHT = 500;
 	private static final Color BACKGROUND = Color.WHITE;
 	private static final Color FOREGROUND = Color.BLACK;
-	Raupe nimmersatt, immersatt, satt, gestopft;
-	Timer timer = new Timer(200, this);
+	private Raupe nimmersatt, immersatt, satt, gestopft;
 	
-	public RaupeAnw(final String title) {
+	public RaupeAnwendung(final String title) {
 		super(WIDTH, HEIGHT, BACKGROUND, FOREGROUND, title);
 		// eigene Initialisierung
+		nimmersatt = new Raupe(150, 100, Color.GREEN, 10);
+		immersatt = new Raupe(100, 200, Color.BLUE, 7);
+		satt = new Raupe(300, 300, Color.RED, 2);
+		gestopft = new Raupe(200, 400, Color.GRAY, 1);
+		Timer timer = new Timer(50, this);
 		timer.start();
-		nimmersatt = new Raupe(100, 100, Color.GREEN, 10);
-		immersatt = new Raupe(100, 200, Color.BLUE, 5);
-		satt = new Raupe(100, 300, Color.RED, 2);
-		gestopft = new Raupe(100, 400, Color.GRAY, 0);
 	}
 
 	@Override
@@ -40,9 +40,10 @@ public class RaupeAnw extends HJFrame {
 
 	public static void main(final String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
-					RaupeAnw anwendung = new RaupeAnw("RaupeAnw");
+					RaupeAnwendung anwendung = new RaupeAnwendung("Raupe Anwendung");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

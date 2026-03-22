@@ -1,8 +1,8 @@
-class Demo {
-	public String name = "Demo";
-	public double gewicht = 55.5;
-	public int groesse;
-	public static int alter;
+public class Demo {
+	private String name = "Demo";
+	private double gewicht = 55.5;
+	private int groesse;
+	private static int alter;
 
 	public Demo(String name, double gewicht) {
 		this.name = name;

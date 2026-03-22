@@ -1,5 +1,3 @@
-package klassenUndObjekte.hundAufgabe;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
@@ -12,7 +10,7 @@ public class Hund {
 	// einzelner Objekte beschreibt)
 
 	// zählt die Anzahl aller Hunde
-	private static int anzahl = 0;
+	private static int anzahlHunde = 0;
 
 	// ATTRIBUTE DER KLASSE:
 	// Mit Hilfe der globalen Variablen werden die Eigenschaften von Objekten der Klasse beschrieben.
@@ -25,26 +23,24 @@ public class Hund {
 	private int y = 0;
 	// Zähler für die Animation
 	private int zaehler = 0;
-	// Zufallszahlengenerator
-	private Random zufall;
 
 	// STATISCHE METHODEN (static): 
 	// Brauchen kein Objekt der Klasse um sie aufrufen zu können.
 	
 	public static int getAnzahlHunde() {
-		return anzahl;
+		return anzahlHunde;
 	}
 	
-	// Konstruktor(en):
+	// KONSTRUKTOR(EN):
 	// Werden benutzt, wenn ein Objekt der Klasse zu erzeugen und sorgen dafür, dass die
 	// Startbedingungen für das neue Objekt sinnvoll gesetzt werden.
 	
 	public Hund(JFrame frame) {
-		zufall = new Random();
+		Random zufall = new Random();
 		// Das neue Hund-Objekt wird an einer zufälligen Stelle des Fensters erzeugt
 		x = zufall.nextInt(frame.getContentPane().getWidth() - 70);
 		y = zufall.nextInt(frame.getContentPane().getHeight() - 60);
-		anzahl++;
+		anzahlHunde++;
 	}
 
 	public Hund(int xPos, int yPos, Color farbe) {
@@ -52,7 +48,7 @@ public class Hund {
 		y = yPos;
 		this.farbe = farbe;
 		freutSich = true;
-		anzahl++;
+		anzahlHunde++;
 	}
 
 	public Hund(int x, int y, boolean freutSich) {
@@ -60,13 +56,13 @@ public class Hund {
 		this.y = y;
 		farbe = Color.YELLOW;
 		this.freutSich = freutSich;
-		anzahl++;
+		anzahlHunde++;
 	}
 
 	public Hund(Color farbe, boolean f) {
 		this.farbe = farbe;
 		freutSich = f;
-		anzahl++;
+		anzahlHunde++;
 	}
 
 	// METHODEN DER KLASSE:
